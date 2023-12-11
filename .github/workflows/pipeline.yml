@@ -1,4 +1,4 @@
-name: boardgames CI
+name: boardgames CI/CD
 
 on:
   push:
@@ -34,3 +34,21 @@ jobs:
           service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
           api-key: ${{ secrets.MY_RENDER_API_KEY }}
     needs: build-test
+
+  run-ui-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code.
+        uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'npm'
+      - name: Build & install dependencies.
+        run: npm install
+      - name: Install playwright module for UI tests.
+        run: npx playwright install
+      - name: Run User Interface tests.
+        run: npm run test:ui
+    needs: deploy

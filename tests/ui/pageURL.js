@@ -1,1 +1,1 @@
-export const pageURL = 'http://localhost:8080/'
+export const pageURL = 'https://qceka88-boardgames.onrender.com/'
