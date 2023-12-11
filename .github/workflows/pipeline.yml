@@ -21,6 +21,6 @@ jobs:
       - name: Build & install dependencies.
         run: npm install
       - name: Run Unit tests on our WebApp.
-        run: npm run test:uni
+        run: npm run test:unit
       - name: Display my SoftUni username.
         run: echo "qceka88"
