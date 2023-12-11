@@ -24,3 +24,13 @@ jobs:
         run: npm run test:unit
       - name: Display my SoftUni username.
         run: echo "qceka88"
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy our WebApp to  production.
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
+    needs: build
