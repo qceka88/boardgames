@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  build-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code.
@@ -33,4 +33,4 @@ jobs:
         with:
           service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
           api-key: ${{ secrets.MY_RENDER_API_KEY }}
-    needs: build
+    needs: build-test
